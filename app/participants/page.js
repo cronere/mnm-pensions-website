@@ -10,14 +10,46 @@ export const metadata = {
   alternates: { canonical: '/participants' },
 }
 
+// Each answer: intro text, optional numbered list (items), optional closing note.
 const FAQ = [
-  ['Who is MNM Pensions?', 'MNM Pensions keeps the records for your employer’s retirement plan and handles its administration. We do not choose the plan’s investments, and we do not work for you or your employer as an investment advisor.'],
-  ['How do I see my balance?', 'Sign in to the participant portal. If this is your first time, choose the option to claim your account and have your account number, date of birth and the last four digits of your Social Security number ready.'],
-  ['Who contributes to my account?', 'Your employer makes contributions on your behalf at the rate set in the plan document. Check your plan document or ask your benefits office for the rate that applies to you.'],
-  ['What happens when I leave my position?', 'Your account stays in the plan. Whether and when you can take a distribution depends on your plan document, and a termination of employment is the usual trigger. Contact your benefits office to report the separation if they have not already.'],
-  ['How do I request a distribution?', 'Contact us or your benefits office to start a request. We confirm the request against the plan terms, then process it with the required tax withholding and forms.'],
-  ['Are distributions taxable?', 'Generally, yes. Distributions are taxable income and may carry withholding or early-distribution tax. We cannot give tax advice, so talk to a tax professional before you decide.'],
-  ['Who do I ask about investment options?', 'Your employer or the plan’s investment advisor. MNM Pensions does not select or advise on investments.'],
+  {
+    q: 'Who is Merkley, Newman & McLaws?',
+    intro: 'Merkley, Newman & McLaws, or MNM Pensions for short, keeps the records for your employer’s retirement plan and handles its administration. We do not choose the plan’s investments, and we do not work for you or your employer as an investment advisor.',
+  },
+  {
+    q: 'How do I see my balance?',
+    intro: 'Sign in to the participant portal. If this is your first time, choose the option to claim your account and have your account number, date of birth and the last four digits of your Social Security number ready.',
+  },
+  {
+    q: 'Who contributes to my account?',
+    intro: 'You contribute to your plan just like you would to Social Security. In some instances, your employer may contribute as well. You can check your contribution rates in your account.',
+  },
+  {
+    q: 'What happens when I leave my position?',
+    intro: 'It depends on your situation:',
+    items: [
+      'If you have moved full-time with the same employer (and are no longer eligible to participate in this plan), you can request a distribution and close the account, or leave your account here.',
+      'If you have terminated employment, you can request a distribution and close the account, or leave your account for up to 2 years. At that time, we will proceed with an “involuntary distribution,” where we close your account and open an IRA in your name with a new institution.',
+    ],
+  },
+  {
+    q: 'How do I request a distribution?',
+    intro: 'Log into your account and start the process online. Alternatively, reach out to our team to get started. Distributions occur monthly or quarterly, depending on how your employer runs their distribution reporting process.',
+  },
+  {
+    q: 'Are distributions taxable?',
+    intro: 'Depending on the type of distribution, they can be. Here are your main distribution options:',
+    items: [
+      'Lump sum distribution. This is a cash distribution and a taxable event. We are required to withhold 20% and send it to the IRS on your behalf. You will receive a 1099 and can true-up with the IRS based on your own individual tax rate. A lump sum taken before age 59½ can also result in a 10% early-withdrawal penalty from the IRS.',
+      'Rollover to an employer plan. If you have a new employer plan, or a previous employer plan that accepts rollovers, this is typically a tax-deferred event, meaning the rollover keeps its pre-tax status.',
+      'Rollover to an individual retirement account (IRA). A rollover to a regular (traditional) IRA keeps the pre-tax status with no tax consequence. A rollover to a Roth IRA is a taxable event. We are not required to withhold 20%, but you will still receive a 1099 to help you true-up with the IRS.',
+    ],
+    outro: 'We cannot give tax advice, so talk to a tax professional before you decide.',
+  },
+  {
+    q: 'Who do I ask about investment options?',
+    intro: 'Sign in to your account to see the contact information for the investment and financial advising team that works with your employer. MNM Pensions does not select or advise on investments.',
+  },
 ]
 
 export default function Participants() {
@@ -40,10 +72,16 @@ export default function Participants() {
       <section className="sec" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="faq">
-            {FAQ.map(([q, a]) => (
+            {FAQ.map(({ q, intro, items, outro }) => (
               <details key={q}>
                 <summary>{q}</summary>
-                <p>{a}</p>
+                <p>{intro}</p>
+                {items && (
+                  <ol>
+                    {items.map((t) => <li key={t}>{t}</li>)}
+                  </ol>
+                )}
+                {outro && <p>{outro}</p>}
               </details>
             ))}
           </div>

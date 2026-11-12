@@ -204,6 +204,9 @@ html:has(.site), body:has(.site) { height: auto; }
 .faq summary::after { content: '+'; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--sky); color: var(--blue); font-family: var(--sans); font-size: 1.3rem; line-height: 1; flex: none; }
 .faq details[open] summary::after { content: '\2212'; }
 .faq details p { margin-top: 0.8rem; }
+.faq details ol { margin: 0.7rem 0 0 1.25rem; padding: 0; display: grid; gap: 0.6rem; }
+.faq details li { padding-left: 0.3rem; }
+.faq details li::marker { color: var(--blue); font-weight: 700; }
 
 /* ---------- Photos and team ---------- */
 .photo { margin: 0; width: 100%; background: var(--sky); border-radius: 22px; box-shadow: var(--shadow); display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line); }
