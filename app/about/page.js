@@ -41,6 +41,7 @@ export default function About() {
           <Photo
             ratio="4 / 3"
             alt="MNM office"
+            src="/office.jpg"
             need="MNM office or team at work, landscape 4:3"
           />
         </div>
@@ -54,10 +55,18 @@ export default function About() {
               Four partners with decades of qualified plan experience between them.
             </p>
           </div>
+          <article className="team-lead">
+            <Photo shape="circle" src={TEAM[0].photo} alt={TEAM[0].name} need={`Headshot of ${TEAM[0].name}`} />
+            <div>
+              <h3>{TEAM[0].name}</h3>
+              <span className="tag" style={{ display: 'block', fontWeight: 600, color: 'var(--blue)', margin: '0.15rem 0 0.75rem' }}>{TEAM[0].role}</span>
+              <p>{TEAM[0].bio}</p>
+            </div>
+          </article>
           <div className="team">
-            {TEAM.map((m) => (
+            {TEAM.slice(1).map((m) => (
               <article className="member" key={m.name}>
-                <Photo ratio="4 / 5" alt={m.name} need={`Headshot of ${m.name}, portrait 4:5`} />
+                <Photo shape="circle" src={m.photo} alt={m.name} need={`Headshot of ${m.name}`} />
                 <h3>{m.name}</h3>
                 <span className="tag">{m.role}</span>
                 <p>{m.bio}</p>

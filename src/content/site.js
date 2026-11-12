@@ -115,22 +115,48 @@ export const PRICING = {
 export const TEAM = [
   {
     name: 'Jacob Merkley',
+    photo: '/jacob.jpg',
     role: 'Partner',
     bio: 'Jacob holds a degree in Accounting and an MBA. He began working in plan administration in 2017 and, since 2025, has specialized in 401(a) money purchase plans for colleges and school districts.',
   },
   {
     name: 'Robert Merkley',
+    photo: '/robert.jpg',
     role: 'Partner (Emeritus)',
     bio: 'Robert holds a degree in Finance and is an IRS-enrolled retirement plan agent (ERPA). He has specialized in qualified plans since 1984, with experience in computer programming, accounting, investment analysis and general business consulting.',
   },
   {
     name: 'Sharon Newman',
+    photo: '/sharon.jpg',
     role: 'Partner (Emeritus)',
     bio: 'Sharon holds a degree in Accounting and has specialized in qualified plans since 1986. Her specialty is working with defined contribution plans.',
   },
   {
     name: 'Karen McLaws',
+    photo: '/karen.jpg',
     role: 'Partner (Emeritus)',
     bio: 'Karen has specialized in qualified plans since the late 1980s, with extensive experience in plan design and the creation of legal documents. Before entering the field, she served a national company as a human resources regional manager.',
   },
 ]
+
+// Annual report fee is discounted on a straight line: 0% at $5M in plan
+// assets up to 100% (no fee) at $50M and above.
+export const REPORT_DISCOUNT = { floor: 5_000_000, ceiling: 50_000_000 }
+export const REPORT_DISCOUNT_EXAMPLES = [5, 10, 20, 30, 40, 50].map((m) => ({
+  assets: m,
+  pct: Math.round(((m * 1_000_000 - REPORT_DISCOUNT.floor) / (REPORT_DISCOUNT.ceiling - REPORT_DISCOUNT.floor)) * 100),
+}))
+
+// TPA-only (no daily recordkeeping)
+export const TPA_ONLY = {
+  base: 300,
+  tiers: [
+    { range: 'Participants 1 to 30', rate: 25 },
+    { range: 'Participants 31 to 100', rate: 20 },
+    { range: 'Participants 101 to 200', rate: 15 },
+    { range: 'Participants 201 to 300', rate: 12 },
+    { range: 'Participants 301 to 400', rate: 10 },
+    { range: 'Participants 401 and up', rate: 8 },
+  ],
+  example: { participants: 120, total: 300 + 30 * 25 + 70 * 20 + 20 * 15 },
+}

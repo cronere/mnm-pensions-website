@@ -5,11 +5,15 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { NAV } from '@/content/site'
 
-export function Mark() {
+export function Mark({ white = false }) {
   return (
-    <Link href="/" className="mark" aria-label="MNM Pensions home">
-      <b>MNM</b>
-      <span>Pensions</span>
+    <Link href="/" className="logo" aria-label="Merkley, Newman & McLaws, Inc. home">
+      <img
+        src={white ? '/brand/mnm-logo-compact-white.svg' : '/brand/mnm-logo-compact.svg'}
+        alt="Merkley, Newman & McLaws, Inc."
+        width="1300"
+        height="150"
+      />
     </Link>
   )
 }

@@ -1,6 +1,6 @@
 import PageHero from '@/components/site/PageHero'
 import ContactSection from '@/components/site/ContactSection'
-import { PRICING } from '@/content/site'
+import { PRICING, TPA_ONLY, REPORT_DISCOUNT_EXAMPLES } from '@/content/site'
 
 export const metadata = {
   title: 'Pricing: Transparent 401(a) Administration and Recordkeeping Fees',
@@ -83,13 +83,67 @@ export default function Pricing() {
               <p className="tag">Administration only</p>
               <h3>Administration without daily recordkeeping</h3>
               <ul>
-                {/* CONFIRM: publish the TPA-only per-participant schedule */}
-                <li>Per-participant fee schedule, quoted for your plan</li>
+                <li>{usd(TPA_ONLY.base)} base fee, plus a per-participant fee (schedule below)</li>
                 <li>{PRICING.distribution} per distribution</li>
                 <li>Annual report fee</li>
                 <li>Annual valuation instead of daily</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec wash" aria-labelledby="tpa-only">
+        <div className="wrap">
+          <div className="sec-head">
+            <h2 id="tpa-only">Administration-only fee schedule</h2>
+            <p>
+              A {usd(TPA_ONLY.base)} base fee, plus a per-participant fee that falls as the plan grows. Each
+              rate applies only to the participants within its band.
+            </p>
+          </div>
+          <div className="table-wrap">
+            <table className="fees">
+              <thead>
+                <tr><th>Participants</th><th className="n">Fee per participant</th></tr>
+              </thead>
+              <tbody>
+                {TPA_ONLY.tiers.map((t) => (
+                  <tr key={t.range}><th scope="row">{t.range}</th><td className="n">{usd(t.rate)}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="cite">
+            Example: a plan with {TPA_ONLY.example.participants} participants pays {usd(TPA_ONLY.base)} + 30 &times; $25 + 70 &times; $20 + 20 &times; $15 = {usd(TPA_ONLY.example.total)}.
+          </p>
+        </div>
+      </section>
+
+      <section className="sec" aria-labelledby="report">
+        <div className="wrap cols wide-left">
+          <div>
+            <h2 id="report">Annual report fee discount</h2>
+            <p style={{ marginTop: '1rem' }}>
+              The annual report fee is discounted as plan assets grow: no discount at $5 million, rising
+              in a straight line to no annual report fee at $50 million and above.
+            </p>
+            <div className="table-wrap" style={{ marginTop: '1.5rem' }}>
+              <table className="fees">
+                <thead>
+                  <tr><th>Plan assets</th><th className="n">Discount</th></tr>
+                </thead>
+                <tbody>
+                  {REPORT_DISCOUNT_EXAMPLES.map((r) => (
+                    <tr key={r.assets}><th scope="row">{r.assets === 50 ? '$50 million and above' : `$${r.assets} million`}</th><td className="n">{r.pct}%</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="aside">
+            <h3>Between the steps</h3>
+            <p>Discounts between these amounts are calculated on the same straight line.</p>
           </div>
         </div>
       </section>
@@ -114,8 +168,8 @@ export default function Pricing() {
               <li>Plan document restatement fees charged by document providers</li>
             </ul>
             <p className="cite">
-              {/* CONFIRM: annual reporting fee schedule */}
-              Annual reporting is priced by plan size. Ask us for the schedule that fits yours.
+              {/* CONFIRM: publish the base annual report fee */}
+              Annual report fee: quoted for your plan, then discounted as shown above.
             </p>
           </div>
         </div>

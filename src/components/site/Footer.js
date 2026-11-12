@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="ftr-grid">
           <div>
-            <Mark />
+            <Mark white />
             <p>
               Administration and daily recordkeeping for non-ERISA governmental
               money purchase plans at colleges and school districts.

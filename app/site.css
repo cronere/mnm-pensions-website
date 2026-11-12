@@ -102,7 +102,10 @@ body:has(.site) {
 .mark b { font-weight: 600; font-size: 1.65rem; letter-spacing: 0.01em; }
 .mark span { font-size: 1.05rem; color: var(--ink-3); }
 
-.nav { display: none; gap: 1.6rem; align-items: center; }
+.logo { display: inline-flex; align-items: center; }
+.logo img { height: clamp(1.75rem, 4vw, 2.3rem); width: auto; display: block; }
+.ftr .logo img { height: 2.2rem; }
+.nav { display: none; gap: 1.4rem; align-items: center; }
 .nav a { text-decoration: none; font-size: 0.95rem; color: var(--ink-2); padding: 0.4rem 0; border-bottom: 2px solid transparent; }
 .nav a:hover { color: var(--ink); border-bottom-color: var(--brass); }
 .nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--navy); }
@@ -134,7 +137,7 @@ body:has(.site) {
 }
 .mobile-nav .btn { margin-top: 1rem; width: 100%; }
 
-@media (min-width: 62rem) {
+@media (min-width: 70rem) {
   .nav, .hdr-actions { display: flex; }
   .menu-btn, .mobile-nav { display: none; }
 }
@@ -331,9 +334,15 @@ body:has(.site) {
 /* ---------- Photos and team ---------- */
 .photo { margin: 0; width: 100%; background: var(--wash); border: 1px dashed var(--ink-3); display: grid; place-items: center; overflow: hidden; }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo.circle { border-radius: 50%; aspect-ratio: 1 / 1 !important; }
 .photo figcaption { display: grid; gap: 0.35rem; text-align: center; padding: 1rem; color: var(--ink-3); font-size: 0.88rem; max-width: 22rem; }
 .photo figcaption b { color: var(--ink-2); }
-.team { display: grid; gap: 2.5rem 2rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.team-lead { display: grid; gap: 1.5rem; justify-items: start; padding-bottom: clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--rule); margin-bottom: clamp(2rem, 4vw, 3rem); }
+.team-lead .photo { width: min(15rem, 60vw); }
+@media (min-width: 46rem) { .team-lead { grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; } .team-lead .photo { width: 15rem; } }
+.team-lead p { font-size: 1.1rem; }
+.team { display: grid; gap: 2.5rem 2rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.team .photo { width: 9rem; }
 .member h3 { margin-top: 1rem; }
 .member .tag { display: block; font-size: 0.9rem; font-weight: 600; color: var(--blue); margin: 0.15rem 0 0.6rem; }
 .member p { font-size: 1rem; }

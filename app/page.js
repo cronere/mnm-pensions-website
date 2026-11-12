@@ -17,6 +17,7 @@ export default function Home() {
     areaServed: 'US',
     description:
       'Third-party administration and daily recordkeeping for non-ERISA governmental 401(a) money purchase plans at colleges and school districts.',
+    logo: 'https://mnmpensions.com/brand/mnm-logo.png',
     email: SITE.email,
     telephone: '+1-480-507-6640',
     faxNumber: '+1-480-813-7791',
@@ -251,7 +252,7 @@ export default function Home() {
               <Link href="/about" className="btn ghost">Meet the team</Link>
             </p>
           </div>
-          <Photo ratio="4 / 3" alt="" need="Community college campus or classroom, landscape 4:3" />
+          <Photo ratio="4 / 3" src="/classroom.jpg" alt="" need="Community college campus or classroom, landscape 4:3" />
         </div>
       </section>
 
