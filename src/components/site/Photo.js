@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 // Put the image file in /public and pass its path as src (e.g. "/office.jpg").
 // If the file is missing, a labelled placeholder shows instead of a broken image.
-export default function Photo({ src, alt = '', ratio = '16 / 9', need, shape }) {
+export default function Photo({ src, alt = '', ratio = '16 / 9', need, shape, focus }) {
   const [failed, setFailed] = useState(false)
   const ref = useRef(null)
 
@@ -18,7 +18,7 @@ export default function Photo({ src, alt = '', ratio = '16 / 9', need, shape }) 
   return (
     <figure className={`photo${shape === 'circle' ? ' circle' : ''}`} style={{ aspectRatio: ratio }}>
       {showImage ? (
-        <img ref={ref} src={src} alt={alt} loading="lazy" onError={() => setFailed(true)} />
+        <img ref={ref} src={src} alt={alt} loading="lazy" style={focus ? { objectPosition: focus } : undefined} onError={() => setFailed(true)} />
       ) : (
         <figcaption>
           {shape === 'circle' ? (

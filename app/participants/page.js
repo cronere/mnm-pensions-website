@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import PageHero from '@/components/site/PageHero'
 import ContactSection from '@/components/site/ContactSection'
-import { CLARENT_URL } from '@/content/site'
+import ClientsSection from '@/components/site/ClientsSection'
 
 export const metadata = {
   title: 'Participants: Your 401(a) Plan Account',
@@ -29,14 +29,16 @@ export default function Participants() {
       />
 
       <section className="sec tight">
-        <div className="wrap" style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
-          <a href={`${CLARENT_URL}/portal`} className="btn">Sign in to your account</a>
-          <Link href="/contact" className="btn ghost">Ask a question</Link>
+        <div className="wrap">
+          <div className="hero-cta" style={{ marginTop: 0 }}>
+            <Link href="/sign-in" className="btn">Sign in to your account</Link>
+            <Link href="/contact" className="btn ghost">Ask a question</Link>
+          </div>
         </div>
       </section>
 
       <section className="sec" style={{ paddingTop: 0 }}>
-        <div className="wrap" style={{ maxWidth: '50rem' }}>
+        <div className="wrap">
           <div className="faq">
             {FAQ.map(([q, a]) => (
               <details key={q}>
@@ -47,6 +49,8 @@ export default function Participants() {
           </div>
         </div>
       </section>
+
+      <ClientsSection tint />
       <ContactSection />
     </>
   )
