@@ -17,6 +17,10 @@ const FAQ = [
     intro: 'Merkley, Newman & McLaws, or MNM Pensions for short, keeps the records for your employer’s retirement plan and handles its administration. We do not choose the plan’s investments, and we do not work for you or your employer as an investment advisor.',
   },
   {
+    q: 'What is a Money Purchase Plan?',
+    intro: 'A Money Purchase Plan is a defined contribution plan with a required contribution. The amount of required contribution is usually defined in the Plan Document as a percentage of each employee’s compensation, similar to how employees and employers pay into Social Security based on a specific percentage.',
+  },
+  {
     q: 'How do I see my balance?',
     intro: 'Sign in to the participant portal. If this is your first time, choose the option to claim your account and have your account number, date of birth and the last four digits of your Social Security number ready.',
   },
