@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CLARENT_URL, SITE, NAV } from '@/content/site'
+import { LOGIN, SITE, NAV } from '@/content/site'
 import { Mark } from './Header'
 
 export default function Footer() {
@@ -27,8 +27,8 @@ export default function Footer() {
           <div>
             <h4>Sign in</h4>
             <ul>
-              <li><a href={`${CLARENT_URL}/portal`}>Participant sign-in</a></li>
-              <li><a href={`${CLARENT_URL}/login`}>Administrator sign-in</a></li>
+              <li><a href={LOGIN.participant}>Participant sign-in</a></li>
+              <li><a href={LOGIN.admin}>Administrator sign-in</a></li>
             </ul>
           </div>
           <div>

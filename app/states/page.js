@@ -2,6 +2,7 @@ import PageHero from '@/components/site/PageHero'
 import ContactSection from '@/components/site/ContactSection'
 import Icon from '@/components/site/Icon'
 import SectionHead from '@/components/site/SectionHead'
+import StateMap from '@/components/site/StateMap'
 import { STATES_HIGH } from '@/content/site'
 
 export const metadata = {
@@ -19,19 +20,17 @@ export default function States() {
         lede="Not every public employee is covered by Social Security. In some states, many are not."
       />
 
-      <section className="sec">
+      <section className="sec" aria-labelledby="seven">
         <div className="wrap">
           <SectionHead
+            id="seven"
             title="Seven states hold most of the uncovered public workforce."
-            sub="According to the Congressional Research Service, seven states account for about 81 percent of participants in public pension plans whose earnings are not covered by Social Security (2021 and 2022 plan data)."
+            sub="According to the Congressional Research Service, these seven states account for about 81 percent of participants in public pension plans whose earnings are not covered by Social Security."
           />
-          <ul className="states">
-            {STATES_HIGH.map((s) => (
-              <li key={s}><Icon name="pin" size={18} />{s}</li>
-            ))}
-          </ul>
-          <p className="cite center" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-            Source: Congressional Research Service,{' '}
+          <StateMap />
+          <p className="legend-list">{STATES_HIGH.join(' · ')}</p>
+          <p className="cite center">
+            Source: Congressional Research Service, 2021 and 2022 plan data,{' '}
             <a href="https://www.everycrsreport.com/reports/R47499.html" rel="noopener">report R47499</a>.
           </p>
         </div>

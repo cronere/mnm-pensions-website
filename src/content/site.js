@@ -21,8 +21,12 @@ export const SITE = {
   },
 }
 
-// CONFIRM: production URL of the ClarentApp deployment
-export const CLARENT_URL = process.env.NEXT_PUBLIC_CLARENT_URL || 'https://clarentapp.com'
+// White-labeled sign-in addresses. These are MNM-branded hostnames that the
+// platform serves for this firm. CONFIRM the hostnames once DNS is set up.
+export const LOGIN = {
+  participant: process.env.NEXT_PUBLIC_PARTICIPANT_LOGIN_URL || 'https://portal.mnmpensions.com',
+  admin: process.env.NEXT_PUBLIC_ADMIN_LOGIN_URL || 'https://admin.mnmpensions.com',
+}
 
 export const NAV = [
   { href: '/services', label: 'Services' },
@@ -163,12 +167,12 @@ export const REPORT_DISCOUNT_EXAMPLES = [5, 10, 20, 30, 40, 50].map((m) => ({
 export const TPA_ONLY = {
   base: 300,
   tiers: [
-    { range: 'Participants 1 to 30', rate: 25 },
-    { range: 'Participants 31 to 100', rate: 20 },
-    { range: 'Participants 101 to 200', rate: 15 },
-    { range: 'Participants 201 to 300', rate: 12 },
-    { range: 'Participants 301 to 400', rate: 10 },
-    { range: 'Participants 401 and up', rate: 8 },
+    { range: 'Participants 1 to 30', upTo: 30, rate: 25 },
+    { range: 'Participants 31 to 100', upTo: 100, rate: 20 },
+    { range: 'Participants 101 to 200', upTo: 200, rate: 15 },
+    { range: 'Participants 201 to 300', upTo: 300, rate: 12 },
+    { range: 'Participants 301 to 400', upTo: 400, rate: 10 },
+    { range: 'Participants 401 and up', upTo: Infinity, rate: 8 },
   ],
   example: { participants: 120, total: 300 + 30 * 25 + 70 * 20 + 20 * 15 },
 }
@@ -183,19 +187,27 @@ export const CLIENTS = [
   { name: 'Tyler Junior College', logo: '/clients/tyler-junior-college.png' },
 ]
 
-// Annual processing and reporting. Derived from two client invoices: a flat
-// base plus a per-participant rate. Clients who also use MNM for daily
-// recordkeeping get the asset-based discount (REPORT_DISCOUNT above).
-export const ANNUAL_REPORT = { base: 2350, perParticipant: 6 }
-const reportFee = (participants, assets, daily) => {
-  const gross = ANNUAL_REPORT.base + ANNUAL_REPORT.perParticipant * participants
-  const disc = daily
-    ? Math.min(1, Math.max(0, (assets - REPORT_DISCOUNT.floor) / (REPORT_DISCOUNT.ceiling - REPORT_DISCOUNT.floor)))
-    : 0
-  return { gross, pct: Math.round(disc * 100), net: Math.round(gross * (1 - disc)) }
+// Fee for administration-only plans: base plus graduated per-participant bands.
+export const tpaFee = (participants) => {
+  let fee = TPA_ONLY.base
+  let prev = 0
+  for (const t of TPA_ONLY.tiers) {
+    const n = Math.max(0, Math.min(participants, t.upTo) - prev)
+    fee += n * t.rate
+    prev = t.upTo
+  }
+  return fee
 }
-export const REPORT_EXAMPLES = [
-  { label: 'Administration only', detail: '300 participants', ...reportFee(300, 0, false) },
-  { label: 'With daily recordkeeping', detail: '1,000 participants, $20 million in assets', ...reportFee(1000, 20e6, true) },
-  { label: 'With daily recordkeeping', detail: '2,000 participants, $40 million in assets', ...reportFee(2000, 40e6, true) },
+export const TPA_EXAMPLES = [120, 250, 450].map((n) => ({ participants: n, fee: tpaFee(n) }))
+
+// Tile-grid map of the United States: [abbreviation, column, row, name]
+export const STATE_GRID = [
+  ['AK',1,1,'Alaska'],['ME',12,1,'Maine'],
+  ['VT',11,2,'Vermont'],['NH',12,2,'New Hampshire'],
+  ['WA',2,3,'Washington'],['ID',3,3,'Idaho'],['MT',4,3,'Montana'],['ND',5,3,'North Dakota'],['MN',6,3,'Minnesota'],['IL',7,3,'Illinois'],['WI',8,3,'Wisconsin'],['MI',9,3,'Michigan'],['NY',10,3,'New York'],['RI',11,3,'Rhode Island'],['MA',12,3,'Massachusetts'],
+  ['OR',2,4,'Oregon'],['NV',3,4,'Nevada'],['WY',4,4,'Wyoming'],['SD',5,4,'South Dakota'],['IA',6,4,'Iowa'],['IN',7,4,'Indiana'],['OH',8,4,'Ohio'],['PA',9,4,'Pennsylvania'],['NJ',10,4,'New Jersey'],['CT',11,4,'Connecticut'],
+  ['CA',2,5,'California'],['UT',3,5,'Utah'],['CO',4,5,'Colorado'],['NE',5,5,'Nebraska'],['MO',6,5,'Missouri'],['KY',7,5,'Kentucky'],['WV',8,5,'West Virginia'],['VA',9,5,'Virginia'],['MD',10,5,'Maryland'],['DE',11,5,'Delaware'],
+  ['AZ',3,6,'Arizona'],['NM',4,6,'New Mexico'],['KS',5,6,'Kansas'],['AR',6,6,'Arkansas'],['TN',7,6,'Tennessee'],['NC',8,6,'North Carolina'],['SC',9,6,'South Carolina'],['DC',10,6,'District of Columbia'],
+  ['OK',5,7,'Oklahoma'],['LA',6,7,'Louisiana'],['MS',7,7,'Mississippi'],['AL',8,7,'Alabama'],['GA',9,7,'Georgia'],
+  ['HI',1,8,'Hawaii'],['TX',5,8,'Texas'],['FL',10,8,'Florida'],
 ]
