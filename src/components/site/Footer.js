@@ -52,7 +52,7 @@ export default function Footer() {
             &middot; <a href={SITE.phoneHref}>{SITE.phone}</a>
           </span>
           <span>
-            {SITE.legalName} is a third-party administrator and recordkeeper. We do not provide
+            {SITE.legalName} ({SITE.name}) is a third-party administrator and recordkeeper. We do not provide
             investment, legal or tax advice, and we do not select or manage plan investments.
           </span>
         </div>
