@@ -11,7 +11,7 @@ export const metadata = {
     template: '%s | MNM Pensions',
   },
   description:
-    'MNM administers and keeps the daily records for non-ERISA governmental 401(a) money purchase plans at colleges and school districts. One firm, start to finish.',
+    'MNM Pensions administers and keeps the daily records for non-ERISA governmental 401(a) money purchase plans at colleges and school districts. One firm, start to finish.',
   openGraph: {
     type: 'website',
     siteName: 'MNM Pensions',

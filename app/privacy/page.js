@@ -3,7 +3,7 @@ import { SITE } from '@/content/site'
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'How Merkley, Newman & McLaws, Inc. (MNM) collects, uses and protects information on this website and in the participant portal.',
+  description: 'How Merkley, Newman & McLaws, Inc. (MNM Pensions) collects, uses and protects information on this website and in the participant portal.',
   alternates: { canonical: '/privacy' },
 }
 
@@ -14,7 +14,7 @@ export default function Privacy() {
       <section className="sec">
         <div className="wrap legal">
           <p>
-            This policy explains how {SITE.legalName} (&ldquo;MNM,&rdquo; &ldquo;we&rdquo;) handles
+            This policy explains how {SITE.legalName} (&ldquo;MNM Pensions,&rdquo; &ldquo;we&rdquo;) handles
             information on this website, in our participant portal and in our administrator
             platform.
           </p>

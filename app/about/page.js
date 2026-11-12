@@ -6,9 +6,9 @@ import SectionHead from '@/components/site/SectionHead'
 import { SITE, TEAM } from '@/content/site'
 
 export const metadata = {
-  title: 'About MNM: 30+ Years Administering Qualified Plans',
+  title: 'About Merkley, Newman & McLaws: 30+ Years Administering Qualified Plans',
   description:
-    'Merkley, Newman & McLaws, Inc. (MNM) has administered qualified retirement plans for more than 30 years and now focuses on non-ERISA governmental 401(a) money purchase plans.',
+    'Merkley, Newman & McLaws, Inc. (MNM Pensions) has administered qualified retirement plans for more than 30 years and now focuses on non-ERISA governmental 401(a) money purchase plans.',
   alternates: { canonical: '/about' },
 }
 
@@ -18,7 +18,7 @@ export default function About() {
     <>
       <PageHero
         title="More than 30 years administering qualified plans."
-        lede="Merkley, Newman & McLaws, Inc. (MNM) is a third-party administrator based in Queen Creek, Arizona. Today we focus on governmental 401(a) money purchase plans for colleges and school districts."
+        lede="Merkley, Newman & McLaws, Inc. (MNM Pensions) is a third-party administrator based in Queen Creek, Arizona. Today we focus on governmental 401(a) money purchase plans for colleges and school districts."
       />
 
       <section className="sec">
@@ -42,7 +42,7 @@ export default function About() {
                 one firm can own the administration and the daily records together.
               </p>
             </div>
-            <Photo ratio="4 / 3" src="/brand/office.jpg" alt="The MNM office" need="MNM office or team at work, landscape 4:3" />
+            <Photo ratio="4 / 3" src="/brand/office.jpg" alt="The MNM Pensions office" need="MNM Pensions office or team at work, landscape 4:3" />
           </div>
         </div>
       </section>

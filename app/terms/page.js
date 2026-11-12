@@ -3,7 +3,7 @@ import { SITE } from '@/content/site'
 
 export const metadata = {
   title: 'Terms of Service',
-  description: 'Terms for using the Merkley, Newman & McLaws, Inc. (MNM) website, participant portal and administrator platform.',
+  description: 'Terms for using the Merkley, Newman & McLaws, Inc. (MNM Pensions) website, participant portal and administrator platform.',
   alternates: { canonical: '/terms' },
 }
 

@@ -4,7 +4,7 @@ import { CLARENT_URL } from '@/content/site'
 
 export const metadata = {
   title: 'Sign in',
-  description: 'Sign in to the MNM participant portal or the administrator platform.',
+  description: 'Sign in to the MNM Pensions participant portal or the administrator platform.',
   robots: { index: false },
 }
 
@@ -23,7 +23,7 @@ export default function SignIn() {
           <div className="card door">
             <span className="bubble lg amber"><Icon name="lock" size={30} /></span>
             <h3 style={{ fontSize: '1.6rem' }}>Administrators</h3>
-            <p>For MNM staff and college plan administrators. Send contribution files securely and find plan reports.</p>
+            <p>For MNM Pensions staff and college plan administrators. Send contribution files securely and find plan reports.</p>
             <a href={`${CLARENT_URL}/login`} className="btn">Administrator sign-in</a>
           </div>
         </div>

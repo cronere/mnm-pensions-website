@@ -9,7 +9,7 @@ export default function ClientsSection({ tint = false, id = 'clients' }) {
         <SectionHead
           id={`${id}-h`}
           title="Plans we administer"
-          sub="Are you a participant? If your college is listed here, MNM keeps the records for your plan."
+          sub="Are you a participant? If your college is listed here, MNM Pensions keeps the records for your plan."
         />
         <ul className="clients">
           {CLIENTS.map((c) => (

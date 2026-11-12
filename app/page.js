@@ -47,7 +47,7 @@ export default function Home() {
         <div className="wrap">
           <h1>Retirement plan administration for colleges and school districts, from first contribution to final distribution.</h1>
           <p className="lede">
-            MNM administers your plan and keeps its daily records, so one firm answers for both.
+            MNM Pensions administers your plan and keeps its daily records, so one firm answers for both.
             We specialize in governmental money purchase plans that fall outside ERISA.
           </p>
           <div className="hero-cta">
@@ -172,7 +172,7 @@ export default function Home() {
             id="participants"
             light
             title="If you are a plan participant"
-            sub="Your employer set up this plan and MNM keeps its records. Sign in to see your balance and activity, or find out how to take a distribution after you leave your position."
+            sub="Your employer set up this plan and MNM Pensions keeps its records. Sign in to see your balance and activity, or find out how to take a distribution after you leave your position."
           />
           <div className="hero-cta" style={{ marginTop: 0 }}>
             <Link href="/sign-in" className="btn amber">Participant sign-in</Link>

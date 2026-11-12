@@ -91,8 +91,8 @@ export default function ContactSection({ id = 'contact' }) {
               </div>
               <div className="field">
                 <label htmlFor={`${id}-topic`}>What do you need?</label>
-                <select id={`${id}-topic`} name="topic" defaultValue="Moving a plan to MNM">
-                  <option>Moving a plan to MNM</option>
+                <select id={`${id}-topic`} name="topic" defaultValue="Moving a plan to MNM Pensions">
+                  <option>Moving a plan to MNM Pensions</option>
                   <option>Setting up a new plan</option>
                   <option>Pricing question</option>
                   <option>I am a participant with a question</option>

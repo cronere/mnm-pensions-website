@@ -152,7 +152,7 @@ export default function Pricing() {
               </tbody>
             </table>
           </div>
-          <p className="note">Illustrations, not quotes. The discount applies to plans that also use MNM for daily recordkeeping.</p>
+          <p className="note">Illustrations, not quotes. The discount applies to plans that also use MNM Pensions for daily recordkeeping.</p>
 
           <div style={{ marginTop: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
             <SectionHead

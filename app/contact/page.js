@@ -3,7 +3,7 @@ import ContactSection from '@/components/site/ContactSection'
 
 export const metadata = {
   title: 'Contact',
-  description: 'Talk to MNM about moving or starting a governmental 401(a) money purchase plan.',
+  description: 'Talk to MNM Pensions about moving or starting a governmental 401(a) money purchase plan.',
   alternates: { canonical: '/contact' },
 }
 

@@ -11,13 +11,13 @@ export const metadata = {
 }
 
 const FAQ = [
-  ['Who is MNM?', 'MNM keeps the records for your employer’s retirement plan and handles its administration. We do not choose the plan’s investments, and we do not work for you or your employer as an investment advisor.'],
+  ['Who is MNM Pensions?', 'MNM Pensions keeps the records for your employer’s retirement plan and handles its administration. We do not choose the plan’s investments, and we do not work for you or your employer as an investment advisor.'],
   ['How do I see my balance?', 'Sign in to the participant portal. If this is your first time, choose the option to claim your account and have your account number, date of birth and the last four digits of your Social Security number ready.'],
   ['Who contributes to my account?', 'Your employer makes contributions on your behalf at the rate set in the plan document. Check your plan document or ask your benefits office for the rate that applies to you.'],
   ['What happens when I leave my position?', 'Your account stays in the plan. Whether and when you can take a distribution depends on your plan document, and a termination of employment is the usual trigger. Contact your benefits office to report the separation if they have not already.'],
   ['How do I request a distribution?', 'Contact us or your benefits office to start a request. We confirm the request against the plan terms, then process it with the required tax withholding and forms.'],
   ['Are distributions taxable?', 'Generally, yes. Distributions are taxable income and may carry withholding or early-distribution tax. We cannot give tax advice, so talk to a tax professional before you decide.'],
-  ['Who do I ask about investment options?', 'Your employer or the plan’s investment advisor. MNM does not select or advise on investments.'],
+  ['Who do I ask about investment options?', 'Your employer or the plan’s investment advisor. MNM Pensions does not select or advise on investments.'],
 ]
 
 export default function Participants() {
