@@ -142,14 +142,14 @@ export const TEAM = [
   {
     name: 'Sharon Newman',
     photo: '/brand/sharon.jpg',
-    focus: 'center 50%',
+    focus: 'center 82%',
     role: 'Partner (Emeritus)',
     bio: 'Sharon holds a degree in Accounting and has specialized in qualified plans since 1986. Her specialty is working with defined contribution plans.',
   },
   {
     name: 'Karen McLaws',
     photo: '/brand/karen.jpg',
-    focus: 'center 30%',
+    focus: 'center 38%',
     role: 'Partner (Emeritus)',
     bio: 'Karen has specialized in qualified plans since the late 1980s, with extensive experience in plan design and the creation of legal documents. Before entering the field, she served a national company as a human resources regional manager.',
   },
